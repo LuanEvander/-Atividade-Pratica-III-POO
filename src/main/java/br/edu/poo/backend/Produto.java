@@ -1,4 +1,4 @@
-package br.edu.poo.back;
+package br.edu.poo.backend;
 
 public class Produto implements IProdutos{
 

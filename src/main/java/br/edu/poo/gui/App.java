@@ -21,7 +21,7 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
         stage.setResizable(false);
-        stage.setTitle("Gerenciador de Notas Fiscais");
+        stage.setTitle("Locadora");
     }
 
     static void setRoot(String fxml) throws IOException {

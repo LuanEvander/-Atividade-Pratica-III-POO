@@ -5,5 +5,5 @@ module br.edu.poo {
 
     opens br.edu.poo.gui to javafx.fxml;
     exports br.edu.poo.gui;
-    exports br.edu.poo.back;
+    exports br.edu.poo.backend;
 }
