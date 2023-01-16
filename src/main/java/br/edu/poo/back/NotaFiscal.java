@@ -8,7 +8,6 @@ public class NotaFiscal implements INotasFiscais {
     private double preco;
     private double quantidade;
 
-    
     /**
      * @param codigo O código da nota fiscal.
      * @param nome O nome do produto.
