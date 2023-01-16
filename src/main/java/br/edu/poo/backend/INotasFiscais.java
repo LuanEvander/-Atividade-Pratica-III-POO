@@ -1,4 +1,4 @@
-package br.edu.poo.back;
+package br.edu.poo.backend;
 
 /**
  * Interface que especifica os métodos míninos para manipular uma coleção de notas fiscais.
