@@ -1,4 +1,10 @@
 package br.edu.poo.backend;
+ 
+/**
+ * Classe que representa um produto.
+ * 
+ * @author Kauã Henrico
+ */
 
 public class Produto {
 

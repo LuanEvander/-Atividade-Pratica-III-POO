@@ -5,7 +5,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-public class NotaFiscal{
+/**
+ * Classe que representa uma nota fiscal.
+ * 
+ * @author Luan Evander
+ */
+public class NotaFiscal {
 
     // Atributos da classe NotaFiscal.
     private static int numCodigo = 1000000000;
