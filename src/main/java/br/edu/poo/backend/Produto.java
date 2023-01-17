@@ -5,6 +5,7 @@ public class Produto {
     // Atributos da classe Produto.
     private int codigo;
     private String nome;
+    private String descricao;
     private double preco;
     private double quantidade;
 
@@ -14,9 +15,10 @@ public class Produto {
      * @param preco Preço do produto.
      * @param quantidade Quantidade do produto.
      */
-    public Produto(int codigo, String nome, double preco, double quantidade) {
+    public Produto(int codigo, String nome, String descricao, double preco, double quantidade) {
         this.codigo = codigo;
         this.nome = nome;
+        this.descricao = descricao;
         this.preco = preco;
         this.quantidade = quantidade;
     }
@@ -92,4 +94,23 @@ public class Produto {
     public void setQuantidade(double quantidade) {
         this.quantidade = quantidade;
     }
+
+    /**
+     * Método que retorna a descrição do produto.
+     * 
+     * @return Retorna a descrição do produto.
+     */
+    public String getDescricao() {
+        return descricao;
+    }
+
+    /**
+     * Método que altera a descrição do produto.
+     * 
+     * @param descricao Define nova descrição do produto.
+     */
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
 }
