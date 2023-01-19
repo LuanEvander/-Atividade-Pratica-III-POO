@@ -118,4 +118,8 @@ public class Produto {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
+    public String toString() {
+        return "Código: " + this.codigo + "\nNome: " + this.nome + "\nDescrição: " + this.descricao + "\nPreço: " + this.preco + "\nQuantidade: " + this.quantidade;
+}
 }
