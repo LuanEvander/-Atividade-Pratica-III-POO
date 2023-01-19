@@ -18,12 +18,13 @@ public class NotaFiscal {
     private Date dataEmissao;
     private ArrayList<Item> relacaoItens = new ArrayList<Item>();
 
-    SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss", new Locale("pt", "BR"));
+    SimpleDateFormat formatoData =
+            new SimpleDateFormat("dd/MM/yyyy hh:mm:ss", new Locale("pt", "BR"));
 
     /**
      * @param item Relação de itens da nota fiscal.
      */
-    public NotaFiscal (ArrayList<Item> item) {
+    public NotaFiscal(ArrayList<Item> item) {
         this.codigo = numCodigo++;
         this.dataEmissao = new Date();
         this.relacaoItens = item;
@@ -65,4 +66,10 @@ public class NotaFiscal {
         this.relacaoItens = relacaoItens;
     }
 
+    public String toString() {
+        return "Código: " + this.codigo + "\nData de emissão: "
+                + formatoData.format(this.dataEmissao) + "\nRelação de itens: "
+                + this.relacaoItens.toString()
+                + "\n";
+    }
 }
