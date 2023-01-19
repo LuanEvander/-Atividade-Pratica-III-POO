@@ -1,19 +1,32 @@
 package br.edu.poo.backend;
 
 public class ProdutoPorKg extends Produto {
-    private double quantidade;
-    
-    public ProdutoPorKg(int codigo, String nome, String descricao, double preco, double quantidade) {
-        super(codigo, nome, descricao, preco);
-        this.quantidade = quantidade;
+    private double peso;
+
+    public ProdutoPorKg(int codigo, String nome, String descricao, double preco, double quantidade,
+            double peso) {
+        super(codigo, nome, descricao, preco, quantidade);
+        this.peso = peso;
     }
     
-    public double getQuantidade() {
-        return quantidade;
+
+    /**
+     * Método que retorna o peso do produto.
+     * 
+     * @return Retorna o peso do produto.
+     */
+    public double getPeso() {
+        return peso;
     }
-    
-    public void setQuantidade(double quantidade) {
-        this.quantidade = quantidade;
+
+    /**
+     * Método que altera o peso do produto.
+     * 
+     * @param peso Define novo peso do produto.
+     */
+    public void setPeso(double peso) {
+        this.peso = peso;
     }
+
 }
 
