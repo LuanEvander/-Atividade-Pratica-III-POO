@@ -1,6 +1,7 @@
 package br.edu.poo.backend;
 
 import java.util.ArrayList;
+import br.edu.poo.backend.Interfaces.INotasFiscais;
 
 /**
  * Classe que representa uma nota fiscal.
