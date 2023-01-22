@@ -14,12 +14,12 @@ import java.util.ArrayList;
 
 public class Estoque implements IProdutos {
 
-    /*
+    /**
      * Lista de produtos que será utilizada para armazenar os produtos cadastrados.
      */
     private static ArrayList<Produto> listaProdutos = new ArrayList<Produto>();
 
-    /*
+    /**
      * Método que adiciona um produto ao estoque.
      * @param p Produto a ser adicionado.
      * @throws ProdutoInvalidoException caso o produto seja nulo ou não seja do tipo Produto.
@@ -39,7 +39,7 @@ public class Estoque implements IProdutos {
         listaProdutos.add(p);
     }
 
-    /*
+    /**
      * Método que remove um produto do estoque.
      * @param codigo Código do produto a ser removido.
      * @throws CodigoInvalidoException caso o código do produto seja inválido.
@@ -57,7 +57,7 @@ public class Estoque implements IProdutos {
         }
     }
 
-    /*
+    /**
      * Método que retorna um produto do estoque.
      * @param codigo Código do produto a ser retornado.
      * @return Produto com o código passado como parâmetro.
@@ -76,7 +76,7 @@ public class Estoque implements IProdutos {
         return null;
     }
 
-    /*
+    /**
      * Método que atualiza a quantidade de um produto.
      * @param codigo Código do produto a ser atualizado.
      * @param nova Nova quantidade do produto.
@@ -95,7 +95,7 @@ public class Estoque implements IProdutos {
         }
     }
 
-    /*
+    /**
      * Método que atualiza o preço de um produto.
      * @param codigo Código do produto a ser atualizado.
      * @param novo Novo preço do produto.
@@ -114,7 +114,7 @@ public class Estoque implements IProdutos {
         }
     }
 
-    /*
+    /**
      * Método que adiciona a quantidade de um produto.
      * @param codigo Código do produto a ser atualizado.
      * @param quantidade Quantidade a ser adicionada ao produto.
@@ -133,7 +133,7 @@ public class Estoque implements IProdutos {
         }
     }
 
-    /*
+    /**
      * Método que subtrai a quantidade de um produto.
      * @param codigo Código do produto a ser atualizado.
      * @param quantidade Quantidade a ser subtraída do produto.
@@ -152,7 +152,7 @@ public class Estoque implements IProdutos {
         }
     }
 
-    /*
+    /**
      * Método que verifica se um produto existe no estoque.
      * @param codigo Código do produto a ser verificado.
      * @return true caso o produto exista, false caso contrário.
