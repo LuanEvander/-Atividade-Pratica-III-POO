@@ -4,10 +4,27 @@ import br.edu.poo.backend.Exceptions.*;
 import br.edu.poo.backend.Interfaces.IProdutos;
 import java.util.ArrayList;
 
+/**
+ * Classe que implementa a interface IProdutos e contém os métodos para manipular o estoque de
+ * produtos.
+ * 
+ * @author Kaua Henrico
+ * @author Luan Evander
+ */
+
 public class Estoque implements IProdutos {
 
+    /*
+     * Lista de produtos que será utilizada para armazenar os produtos cadastrados.
+     */
     private static ArrayList<Produto> listaProdutos = new ArrayList<Produto>();
 
+    /*
+     * Método que adiciona um produto ao estoque.
+     * @param p Produto a ser adicionado.
+     * @throws ProdutoInvalidoException caso o produto seja nulo ou não seja do tipo Produto.
+     * @throws CodigoInvalidoException caso o código do produto seja inválido.
+     */
     @Override
     public void addProduto(Produto p) throws ProdutoInvalidoException, CodigoInvalidoException {
         if (p == null) {
@@ -22,6 +39,11 @@ public class Estoque implements IProdutos {
         listaProdutos.add(p);
     }
 
+    /*
+     * Método que remove um produto do estoque.
+     * @param codigo Código do produto a ser removido.
+     * @throws CodigoInvalidoException caso o código do produto seja inválido.
+     */
     @Override
     public void removeProduto(int codigo) throws CodigoInvalidoException {
         if (!existe(codigo)) {
@@ -35,6 +57,12 @@ public class Estoque implements IProdutos {
         }
     }
 
+    /*
+     * Método que retorna um produto do estoque.
+     * @param codigo Código do produto a ser retornado.
+     * @return Produto com o código passado como parâmetro.
+     * @throws CodigoInvalidoException caso o código do produto seja inválido.
+     */
     @Override
     public Produto getProduto(int codigo) throws CodigoInvalidoException {
         if (!existe(codigo)) {
@@ -48,6 +76,12 @@ public class Estoque implements IProdutos {
         return null;
     }
 
+    /*
+     * Método que atualiza a quantidade de um produto.
+     * @param codigo Código do produto a ser atualizado.
+     * @param nova Nova quantidade do produto.
+     * @throws CodigoInvalidoException caso o código do produto seja inválido.
+     */
     @Override
     public void updateQuantidade(int codigo, double nova) throws CodigoInvalidoException {
         if (!existe(codigo)) {
@@ -61,6 +95,12 @@ public class Estoque implements IProdutos {
         }
     }
 
+    /*
+     * Método que atualiza o preço de um produto.
+     * @param codigo Código do produto a ser atualizado.
+     * @param novo Novo preço do produto.
+     * @throws CodigoInvalidoException caso o código do produto seja inválido.
+     */
     @Override
     public void updatePreco(int codigo, double novo) throws CodigoInvalidoException {
         if (!existe(codigo)) {
@@ -74,6 +114,12 @@ public class Estoque implements IProdutos {
         }
     }
 
+    /*
+     * Método que adiciona a quantidade de um produto.
+     * @param codigo Código do produto a ser atualizado.
+     * @param quantidade Quantidade a ser adicionada ao produto.
+     * @throws CodigoInvalidoException caso o código do produto seja inválido.
+     */
     @Override
     public void addQuantidade(int codigo, double quantidade) throws CodigoInvalidoException {
         if (!existe(codigo)) {
@@ -87,6 +133,12 @@ public class Estoque implements IProdutos {
         }
     }
 
+    /*
+     * Método que subtrai a quantidade de um produto.
+     * @param codigo Código do produto a ser atualizado.
+     * @param quantidade Quantidade a ser subtraída do produto.
+     * @throws CodigoInvalidoException caso o código do produto seja inválido.
+     */
     @Override
     public void subQuantidade(int codigo, double quantidade) throws CodigoInvalidoException {
         if (!existe(codigo)) {
@@ -100,6 +152,12 @@ public class Estoque implements IProdutos {
         }
     }
 
+    /*
+     * Método que verifica se um produto existe no estoque.
+     * @param codigo Código do produto a ser verificado.
+     * @return true caso o produto exista, false caso contrário.
+     * @throws CodigoInvalidoException caso o código do produto seja inválido.
+     */
     public boolean existe(int codigo) throws CodigoInvalidoException {
         if (codigo < 0) {
             throw new CodigoInvalidoException("Código inválido");
