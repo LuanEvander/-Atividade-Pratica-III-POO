@@ -45,4 +45,7 @@ public class Item {
         this.quantidade = quantidade;
     }
 
+    public double getValorTotal() {
+        return produto.getPreco() * quantidade;
+    }
 }
