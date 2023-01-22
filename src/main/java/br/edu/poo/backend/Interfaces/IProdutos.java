@@ -1,4 +1,6 @@
-package br.edu.poo.backend;
+package br.edu.poo.backend.Interfaces;
+
+import br.edu.poo.backend.Produto;
 
 /**
  * Interface que especifica os métodos míninos para manipular uma coleção de produtos

@@ -1,4 +1,7 @@
-package br.edu.poo.backend;
+package br.edu.poo.backend.Interfaces;
+
+import br.edu.poo.backend.Item;
+import br.edu.poo.backend.NotaFiscal;
 
 /**
  * Interface que especifica os métodos míninos para manipular uma coleção de notas fiscais.
