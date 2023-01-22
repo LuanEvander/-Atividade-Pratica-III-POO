@@ -1,6 +1,7 @@
 package br.edu.poo.backend;
 
 import br.edu.poo.backend.Exceptions.*;
+import br.edu.poo.backend.Interfaces.IProdutos;
 import java.util.ArrayList;
 
 public class Estoque implements IProdutos {
