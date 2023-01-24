@@ -62,6 +62,7 @@ public class RegistroNotasFiscais implements INotasFiscais {
      *  Método que retorna uma nota fiscal do registro.
      * @param codigo Código da nota fiscal a ser retornada.
      * @throws NumeroNotaFiscalInvalidoException caso o número da nota fiscal seja inválido.
+     * @return Retorna a nota fiscal.
      */
     @Override
     public NotaFiscal getNotaFiscal(int codigo) throws NumeroNotaFiscalInvalidoException {
@@ -80,6 +81,7 @@ public class RegistroNotasFiscais implements INotasFiscais {
      *  Método que retorna o total de uma nota fiscal.
      * @param codigo Código da nota fiscal a ser retornada.
      * @throws NumeroNotaFiscalInvalidoException caso o número da nota fiscal seja inválido.
+     * @return Retorna o total da nota fiscal.
      */
     @Override
     public double getTotal(int codigo) throws NumeroNotaFiscalInvalidoException {
@@ -134,7 +136,7 @@ public class RegistroNotasFiscais implements INotasFiscais {
     }
 
     /**
-     *  Método que retorna uma lista de notas fiscais.
+     *  método que verifica se uma nota fiscal existe.
      * @return Lista de notas fiscais.
      */
     public boolean existe(int codigo) throws NumeroNotaFiscalInvalidoException {
