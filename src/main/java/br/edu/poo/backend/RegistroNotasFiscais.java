@@ -5,13 +5,21 @@ import java.util.ArrayList;
 import br.edu.poo.backend.Interfaces.INotasFiscais;
 
 /**
- * Classe que representa uma nota fiscal.
+ * Classe que implementa a interface INotasFiscais e contém os métodos para manipular as notas
  * 
  * @author Luan Evander
+ * @author Kaua Henrico
  */
 public class RegistroNotasFiscais implements INotasFiscais {
     private static ArrayList<NotaFiscal> listaNotasFiscais = new ArrayList<NotaFiscal>();
 
+    /**
+     *  Método que adiciona uma nota fiscal ao registro. 
+     * @param nf Nota fiscal a ser adicionada.
+     * @throws NotaFiscalInvalidaException caso a nota fiscal seja nula ou não seja do tipo NotaFiscal.
+     * @throws NumeroNotaFiscalInvalidoException caso o número da nota fiscal seja inválido.
+     * 
+     */
     @Override
     public void addNotaFiscal(NotaFiscal nf)
             throws NotaFiscalInvalidaException, NumeroNotaFiscalInvalidoException {
@@ -30,6 +38,12 @@ public class RegistroNotasFiscais implements INotasFiscais {
         listaNotasFiscais.add(nf);
     }
 
+    /**
+     *  Método que remove uma nota fiscal do registro.
+     * @param codigo Código da nota fiscal a ser removida.
+     * @throws NumeroNotaFiscalInvalidoException caso o número da nota fiscal seja inválido.
+     */
+    
     @Override
     public void removeNotaFiscal(int codigo) throws NumeroNotaFiscalInvalidoException {
         if (!existe(codigo)) {
@@ -44,6 +58,11 @@ public class RegistroNotasFiscais implements INotasFiscais {
     }
 
 
+    /**
+     *  Método que retorna uma nota fiscal do registro.
+     * @param codigo Código da nota fiscal a ser retornada.
+     * @throws NumeroNotaFiscalInvalidoException caso o número da nota fiscal seja inválido.
+     */
     @Override
     public NotaFiscal getNotaFiscal(int codigo) throws NumeroNotaFiscalInvalidoException {
         if (!existe(codigo)) {
@@ -57,6 +76,11 @@ public class RegistroNotasFiscais implements INotasFiscais {
         return null;
     }
 
+    /**
+     *  Método que retorna o total de uma nota fiscal.
+     * @param codigo Código da nota fiscal a ser retornada.
+     * @throws NumeroNotaFiscalInvalidoException caso o número da nota fiscal seja inválido.
+     */
     @Override
     public double getTotal(int codigo) throws NumeroNotaFiscalInvalidoException {
         if (!existe(codigo)) {
@@ -73,6 +97,12 @@ public class RegistroNotasFiscais implements INotasFiscais {
         return total;
     }
 
+    /**
+     *  Método que adiciona um item a uma nota fiscal.
+     * @param codigo Código da nota fiscal a ser adicionado o item.
+     * @param item Item a ser adicionado.
+     * @throws NumeroNotaFiscalInvalidoException caso o número da nota fiscal seja inválido.
+     */
     @Override
     public void addItem(int codigo, Item item) throws NumeroNotaFiscalInvalidoException {
         if (!existe(codigo)) {
@@ -85,6 +115,12 @@ public class RegistroNotasFiscais implements INotasFiscais {
         }
     }
 
+    /**
+     *  Método que remove um item de uma nota fiscal.
+     * @param codigo Código da nota fiscal a ser removido o item.
+     * @param item Item a ser removido.
+     * @throws NumeroNotaFiscalInvalidoException caso o número da nota fiscal seja inválido.
+     */
     @Override
     public void removeItem(int codigo, Item item) throws NumeroNotaFiscalInvalidoException {
         if (!existe(codigo)) {
@@ -97,6 +133,10 @@ public class RegistroNotasFiscais implements INotasFiscais {
         }
     }
 
+    /**
+     *  Método que retorna uma lista de notas fiscais.
+     * @return Lista de notas fiscais.
+     */
     public boolean existe(int codigo) throws NumeroNotaFiscalInvalidoException {
         if (codigo >= 1000000000 && codigo <= 9999999999L) {
             for (NotaFiscal nf : listaNotasFiscais) {
