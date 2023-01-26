@@ -7,6 +7,7 @@ import java.util.ArrayList;
 /**
  * Classe que implementa a interface IProdutos e contém os métodos para manipular o estoque de
  * produtos.
+ * .
  * 
  * @author Kaua Henrico
  * @author Luan Evander
