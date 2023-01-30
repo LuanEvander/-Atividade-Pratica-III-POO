@@ -54,7 +54,7 @@
                 <MenuItem mnemonicParsing="false" text="Nota Fical" />
               </items>
             </MenuButton>
-            <Label layoutX="109.0" layoutY="29.0" text="MERCADO SÓ OS PIKAS" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="30.0">
+            <Label layoutX="109.0" layoutY="29.0" text="MarkÈd" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="30.0">
                <font>
                   <Font size="36.0" />
                </font>
