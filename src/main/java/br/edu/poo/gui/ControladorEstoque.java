@@ -8,6 +8,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -79,8 +80,46 @@ public class ControladorEstoque {
     private TextInputControl removerProduto_btn;
 
     // Fim da Tela de Atualização
+    // @FXML
+    // void cadastrarProduto(ActionEvent event) {
+    // String nome = addNome_txt.getText();
+    // String descricao = addDescricao_txt.getText();
+
+    // int codigo = Integer.parseInt(addCodigo_txt.getText());
+    // double preco = Double.parseDouble(addPreco_txt.getText());
+    // double quantidade = Double.parseDouble(addQuantidade_txt.getText());
+
+    // Produto produto = new Produto(codigo, nome, descricao, preco, quantidade);
+
+    // try {
+    // metodoEstoque.addProduto(produto);
+    //
+    // Alert alert = new Alert(AlertType.INFORMATION);
+    // alert.setTitle("Produto Cadastrado");
+    // alert.setHeaderText(null);
+    // alert.setContentText(produto.toString());
+    // alert.showAndWait();
+
+    // } catch (CodigoInvalidoException e) {
+    // Alert alert = new Alert(AlertType.ERROR);
+    // alert.setTitle("Erro");
+    // alert.setHeaderText(e.getMessage());
+    // alert.setContentText("Verifique o código do produto e tente novamente.");
+    // alert.showAndWait();
+    // } catch (ProdutoInvalidoException e) {
+    // Alert alert = new Alert(AlertType.ERROR);
+    // alert.setTitle("Erro");
+    // alert.setHeaderText(e.getMessage());
+    // alert.setContentText("Verifique o código do produto e tente novamente.");
+    // alert.showAndWait();
+    // }
+
+    // limparCampos(event);
+    // }
+
+    // crie um metodo para cadastrar produto
     @FXML
-    void cadastrarProduto(ActionEvent event) {
+    private void cadastrarProduto() throws Exception {
         String nome = addNome_txt.getText();
         String descricao = addDescricao_txt.getText();
 
@@ -113,9 +152,8 @@ public class ControladorEstoque {
             alert.showAndWait();
         }
 
-        limparCampos(event);
+        limparCampos(null);
     }
-
 
     void removerProduto() throws Exception {
         String parseCodigo = removerProduto_btn.getText();
@@ -130,18 +168,23 @@ public class ControladorEstoque {
 
     @FXML
     private void initialize() throws Exception {
-        colunaCodigo.setCellValueFactory(
-                cellData -> new SimpleIntegerProperty(cellData.getValue().getCodigo()).asObject());
-        colunaNome
-                .setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNome()));
-        colunaDescricao.setCellValueFactory(
-                cellData -> new SimpleStringProperty(cellData.getValue().getDescricao()));
-        colunaPreco.setCellValueFactory(
-                cellData -> new SimpleDoubleProperty(cellData.getValue().getPreco()).asObject());
-        colunaQuantidade.setCellValueFactory(
-                cellData -> new SimpleDoubleProperty(cellData.getValue().getQuantidade()).asObject());
-        
-        tabelaEstoque.setItems(pesquisaProduto);
+        try {
+            colunaCodigo.setCellValueFactory(
+                    cellData -> new SimpleIntegerProperty(cellData.getValue().getCodigo()).asObject());
+            colunaNome
+                    .setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNome()));
+            colunaDescricao.setCellValueFactory(
+                    cellData -> new SimpleStringProperty(cellData.getValue().getDescricao()));
+            colunaPreco.setCellValueFactory(
+                    cellData -> new SimpleDoubleProperty(cellData.getValue().getPreco()).asObject());
+            colunaQuantidade.setCellValueFactory(
+                    cellData -> new SimpleDoubleProperty(cellData.getValue().getQuantidade()).asObject());
+            if (pesquisaProduto != null && !pesquisaProduto.isEmpty()) {
+                tabelaEstoque.setItems(pesquisaProduto);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -159,6 +202,12 @@ public class ControladorEstoque {
             alert.setContentText("Verifique o código do produto e tente novamente.");
             alert.showAndWait();
         }
+    }
+
+    //metodo que chama o atualizar quantidade e atualizar preço
+    @FXML
+    void atualizarProduto() throws Exception {
+        
     }
 
     @FXML
@@ -192,7 +241,7 @@ public class ControladorEstoque {
     }
 
     @FXML
-    private void addProduto(ActionEvent event) throws Exception {
+    private void addProdutos(ActionEvent event) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TelaDeCadastro.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         Stage stage = new Stage();

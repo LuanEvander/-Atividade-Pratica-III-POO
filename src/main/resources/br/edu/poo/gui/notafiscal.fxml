@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.poo.gui.ControladorEstoque">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.poo.gui.ControladorCaixa">
    <children>
       <AnchorPane fx:id="navBar" prefHeight="0.0" style="-fx-background-color: light gray;">
          <children>
@@ -22,7 +22,7 @@
                   <MenuItem mnemonicParsing="false" text="Estoque" />
                </items>
             </MenuButton>
-            <Label layoutX="109.0" layoutY="29.0" text="MarkÈd" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="30.0">
+            <Label layoutX="109.0" layoutY="29.0" text="MarkÈd - Notas Fiscais" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="30.0">
                <font>
                   <Font size="36.0" />
                </font>
@@ -43,11 +43,11 @@
                      <children>
                         <TableView layoutX="540.0" layoutY="181.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="0.0">
                           <columns>
-                            <TableColumn fx:id="codigo_id" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" resizable="false" text="Código" />
-                            <TableColumn fx:id="nome_id" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" text="Nome" />
-                              <TableColumn fx:id="descricao_id" minWidth="600.0" prefWidth="600.0" text="Descrição" />
-                              <TableColumn fx:id="preco_id" minWidth="0.0" prefWidth="130.0" text="Preço" />
-                              <TableColumn fx:id="quantidade_id" prefWidth="130.0" text="Quantidade" />
+                            <TableColumn maxWidth="120.0" minWidth="120.0" prefWidth="120.0" resizable="false" text="Código" />
+                            <TableColumn maxWidth="200.0" minWidth="200.0" prefWidth="200.0" text="Nome" />
+                              <TableColumn minWidth="600.0" prefWidth="600.0" text="Descrição" />
+                              <TableColumn minWidth="0.0" prefWidth="130.0" text="Preço" />
+                              <TableColumn prefWidth="130.0" text="Quantidade" />
                           </columns>
                         </TableView>
                      </children>
