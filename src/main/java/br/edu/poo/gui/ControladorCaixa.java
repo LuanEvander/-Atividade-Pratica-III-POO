@@ -133,7 +133,7 @@ public void adicionarProduto(ActionEvent event) {
     //metodo para entrar no registro de notas fiscais
     @FXML
     private void registroNotasFiscais(ActionEvent event) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("registroNotasFiscais.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("notafiscal.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
@@ -150,5 +150,6 @@ public void adicionarProduto(ActionEvent event) {
         metodoEstoque.addProduto(produto2);
         metodoEstoque.addProduto(produto1);
     }
+
 
 }
