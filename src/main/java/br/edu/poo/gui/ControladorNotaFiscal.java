@@ -35,7 +35,7 @@ private Estoque metodoEstoque = new Estoque();
 
     @FXML
     private void initialize() throws ProdutoInvalidoException, CodigoInvalidoException {
-        //carregarProdutos();
+        carregarProdutos();
 
         colunaCodigo.setCellValueFactory(new PropertyValueFactory<Produto, Integer>("codigo"));
         colunaNome.setCellValueFactory(new PropertyValueFactory<Produto, String>("nome"));
@@ -55,14 +55,14 @@ private Estoque metodoEstoque = new Estoque();
         listaDeProdutos.add(metodoEstoque.getProduto(codProduto));
     }
 
-    //private void carregarProdutos() throws ProdutoInvalidoException, CodigoInvalidoException {
-        //Produto produto1 = new Produto(1, "Arroz", "Arroz branco", 5.00, 10);
-        //Produto produto2 = new Produto(2, "Feijão", "Feijão preto", 4.00, 10);
-        //Produto produto3 = new Produto(3, "Macarrão", "Macarrão de espaguete", 3.00, 10);
+    private void carregarProdutos() throws ProdutoInvalidoException, CodigoInvalidoException {
+        Produto produto1 = new Produto(1, "Arroz", "Arroz branco", 5.00, 10);
+        Produto produto2 = new Produto(2, "Feijão", "Feijão preto", 4.00, 10);
+        Produto produto3 = new Produto(3, "Macarrão", "Macarrão de espaguete", 3.00, 10);
 
-        //metodoEstoque.addProduto(produto3);
-        //metodoEstoque.addProduto(produto2);
-        //metodoEstoque.addProduto(produto1);
-    //}
+        metodoEstoque.addProduto(produto3);
+        metodoEstoque.addProduto(produto2);
+        metodoEstoque.addProduto(produto1);
+    }
 
 }
