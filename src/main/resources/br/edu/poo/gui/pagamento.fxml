@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="250.0" minWidth="300.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="250.0" minWidth="300.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.poo.gui.ControladorCaixa">
    <children>
       <AnchorPane prefHeight="0.0" prefWidth="0.0">
          <children>
@@ -19,22 +19,22 @@
       </AnchorPane>
       <AnchorPane prefHeight="0.0" prefWidth="0.0">
          <children>
-            <Label text="F1 - Dinheiro" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
+            <Button layoutX="222.0" layoutY="16.0" mnemonicParsing="false" text="DInheiro" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="0.0" prefWidth="0.0">
          <children>
-            <Label text="F2 - Pix" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0" />
+            <Button layoutX="50.0" layoutY="19.0" mnemonicParsing="false" text="Pix" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="0.0" prefWidth="0.0">
          <children>
-            <Label text="F3 - Cartão de Crédito" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0" />
+            <Button layoutX="50.0" layoutY="19.0" mnemonicParsing="false" text="Cartão de Crédito" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="0.0" prefWidth="0.0">
          <children>
-            <Label text="F4 - Cartão de Débito" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0" />
+            <Button layoutX="50.0" layoutY="19.0" mnemonicParsing="false" text="Cartão de Débito" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
          </children>
       </AnchorPane>
    </children>

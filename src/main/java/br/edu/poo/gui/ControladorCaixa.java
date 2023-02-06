@@ -62,37 +62,78 @@ public class ControladorCaixa {
     }
 
     @FXML
-    public void adicionarProduto(ActionEvent event) {
-        int codProduto = Integer.parseInt(txtPesquisarProduto.getText());
-        double qtdProduto = Double.parseDouble(txtQtdProduto.getText());
-        Produto produto = null;
-        try {
-            produto = metodoEstoque.getProduto(codProduto);
-        } catch (CodigoInvalidoException e) {
-            e.printStackTrace();
-        }
+public void adicionarProduto(ActionEvent event) {
+    int codProduto = Integer.parseInt(txtPesquisarProduto.getText());
+    double qtdProduto = Double.parseDouble(txtQtdProduto.getText());
+    Produto produto = null;
+    try {
+        produto = metodoEstoque.getProduto(codProduto);
+    } catch (CodigoInvalidoException e) {
+        e.printStackTrace();
+    }
 
-        try {
-            if (qtdProduto <= 0)
-                ;
-        } catch (IllegalArgumentException e) {
-            // TODO: handle exception
+    try {
+        if (qtdProduto <= 0) {
+            throw new IllegalArgumentException("Quantidade deve ser maior que 0");
         }
+    } catch (IllegalArgumentException e) {
+        // Mostre uma mensagem de erro para o usuário
 
-        Item produtoItem = new Item(produto, qtdProduto);
-        listaDeProdutos.add(produtoItem);
+    }
 
-        double total = 0;
-        for (Item item : listaDeProdutos) {
-            total += item.getValorTotal();
-        }
-        labelTotal.setText(String.valueOf(total));
+    Item produtoItem = new Item(produto, qtdProduto);
+    listaDeProdutos.add(produtoItem);
+
+    double total = 0;
+    for (Item item : listaDeProdutos) {
+        total += item.getValorTotal();
+    }
+    labelTotal.setText(String.valueOf(total));
+    tabelaProdutos.refresh();
+}
+    //metodo pra limpar a planilha apertnado um botão de cancelar
+    @FXML
+    private void limparPlanilha(ActionEvent event) {
+        listaDeProdutos.clear();
         tabelaProdutos.refresh();
     }
 
     @FXML
     private void pagamento(ActionEvent event) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("pagamento.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+    }
+
+    //metodo de compra concluida
+    @FXML
+    private void compraConcluida(ActionEvent event) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PagamentoConcluído.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+    }
+
+    //metodo para entrar no estoque
+    @FXML
+    private void estoque(ActionEvent event) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("estoque.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+    }
+
+    //metodo para entrar no registro de notas fiscais
+    @FXML
+    private void registroNotasFiscais(ActionEvent event) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("registroNotasFiscais.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
