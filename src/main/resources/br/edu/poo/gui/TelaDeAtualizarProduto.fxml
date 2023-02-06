@@ -25,14 +25,14 @@
             </AnchorPane>
             <AnchorPane prefHeight="450.0" prefWidth="550.0">
                <children>
-                  <TextField fx:id="attPesquisaProduto_id" layoutX="50.0" layoutY="47.0" prefHeight="25.0" prefWidth="441.0" promptText="Informe o código do produto" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="50.0" />
+                  <TextField fx:id="PesquisaProduto_txt" layoutX="50.0" layoutY="47.0" prefHeight="25.0" prefWidth="441.0" promptText="Informe o código do produto" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="50.0" />
                   <Label layoutX="53.0" layoutY="47.0" text="Código do produto para atualizar" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="30.0" />
                   <Label layoutX="50.0" layoutY="87.0" />
                   <TextField fx:id="attQuantidade_id" layoutX="50.0" layoutY="220.0" prefHeight="25.0" prefWidth="441.0" promptText="Informe a quantidade atualizada" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
-                  <Button fx:id="attPesquisar_btn" layoutX="448.0" layoutY="50.0" mnemonicParsing="false" text="Pesquisar" AnchorPane.leftAnchor="420.0" AnchorPane.rightAnchor="50.0" />
+                  <Button fx:id="PesquisaProduto_btn" layoutX="448.0" layoutY="50.0" mnemonicParsing="false" text="Pesquisar" AnchorPane.leftAnchor="420.0" AnchorPane.rightAnchor="50.0" />
                   <Label layoutX="50.0" layoutY="203.0" text="Quantidade" />
                   <Label layoutX="50.0" layoutY="255.0" text="Preço" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="470.0" />
-                  <TextField fx:id="attPreco_id" layoutX="50.0" layoutY="274.0" prefHeight="25.0" prefWidth="441.0" promptText="Informe o preço atualizado" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+                  <TextField fx:id="attPreco_txt" layoutX="50.0" layoutY="274.0" prefHeight="25.0" prefWidth="441.0" promptText="Informe o preço atualizado" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
                   <TableView layoutX="46.0" layoutY="96.0" prefHeight="102.0" prefWidth="450.0">
                     <columns>
                       <TableColumn prefWidth="150.0" text="Código" />
@@ -41,7 +41,7 @@
                         <TableColumn prefWidth="70.0" text="Quant." />
                     </columns>
                   </TableView>
-                  <Button fx:id="attConfirmar_btn" layoutX="376.0" layoutY="334.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="120.0" style="-fx-background-color: green;" text="Confirmar" textFill="WHITE" AnchorPane.leftAnchor="380.0" AnchorPane.rightAnchor="50.0">
+                  <Button fx:id="attConfirmar_btn" layoutX="376.0" layoutY="334.0" mnemonicParsing="false" onAction="#atualizarPreco" prefHeight="59.0" prefWidth="120.0" style="-fx-background-color: green;" text="Confirmar" textFill="WHITE" AnchorPane.leftAnchor="380.0" AnchorPane.rightAnchor="50.0">
                      <font>
                         <Font size="20.0" />
                      </font>
