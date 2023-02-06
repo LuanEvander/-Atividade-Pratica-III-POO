@@ -9,22 +9,22 @@ public class ControladorEstoque {
     private Estoque metodoEstoque = new Estoque();
 
     @FXML
-    private TextField txtCodigo;
+    private TextField codigo_id;
     @FXML
-    private TextField txtNome;
+    private TextField nome_id;
     @FXML
-    private TextField txtDescricao;
+    private TextField descricao_id;
     @FXML
-    private TextField txtPreco;
+    private TextField preco_id;
     @FXML
-    private TextField txtQuantidade;
+    private TextField quantidade_id;
 
     void cadastrarProduto() throws Exception {
-        String parseCodigo = txtCodigo.getText();
-        String nome = txtNome.getText();
-        String descricao= txtDescricao.getText();
-        String parsePreco = txtPreco.getText();
-        String parseQuantidade = txtQuantidade.getText();
+        String parseCodigo = codigo_id.getText();
+        String nome = nome_id.getText();
+        String descricao= descricao_id.getText();
+        String parsePreco = preco_id.getText();
+        String parseQuantidade = quantidade_id.getText();
 
         int codigo = Integer.parseInt(parseCodigo);
         double preco = Double.parseDouble(parsePreco);
@@ -42,7 +42,7 @@ public class ControladorEstoque {
     }
 
     void removerProduto() throws Exception {
-        String parseCodigo = txtCodigo.getText();
+        String parseCodigo = codigo_id.getText();
         int codigo = Integer.parseInt(parseCodigo);
 
         try {
@@ -53,7 +53,7 @@ public class ControladorEstoque {
     }
 
     void obterProduto() throws Exception {
-        String parseCodigo = txtCodigo.getText();
+        String parseCodigo = codigo_id.getText();
         int codigo = Integer.parseInt(parseCodigo);
 
         try {
@@ -64,8 +64,8 @@ public class ControladorEstoque {
     }
 
     void atualizarQuantidade() throws Exception {
-        String parseCodigo = txtCodigo.getText();
-        String parseQuantidade = txtQuantidade.getText();
+        String parseCodigo = codigo_id.getText();
+        String parseQuantidade = quantidade_id.getText();
 
         int codigo = Integer.parseInt(parseCodigo);
         double quantidade = Double.parseDouble(parseQuantidade);
@@ -78,8 +78,8 @@ public class ControladorEstoque {
     }
 
     void atualizarPreco() throws Exception {
-        String parseCodigo = txtCodigo.getText();
-        String parsePreco = txtPreco.getText();
+        String parseCodigo = codigo_id.getText();
+        String parsePreco = preco_id.getText();
 
         int codigo = Integer.parseInt(parseCodigo);
         double preco = Double.parseDouble(parsePreco);
