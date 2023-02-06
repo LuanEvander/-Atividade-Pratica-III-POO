@@ -19,22 +19,22 @@
       </AnchorPane>
       <AnchorPane prefHeight="0.0" prefWidth="0.0">
          <children>
-            <Button layoutX="222.0" layoutY="16.0" mnemonicParsing="false" text="DInheiro" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+            <Button fx:id="confirmaCompra_btn" layoutX="222.0" layoutY="16.0" mnemonicParsing="false" onAction="#confirmarCompra" text="Dinheiro" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="0.0" prefWidth="0.0">
          <children>
-            <Button layoutX="50.0" layoutY="19.0" mnemonicParsing="false" text="Pix" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+            <Button fx:id="confirmaCompra_btn" layoutX="50.0" layoutY="19.0" mnemonicParsing="false" onAction="#confirmarCompra" text="Pix" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="0.0" prefWidth="0.0">
          <children>
-            <Button layoutX="50.0" layoutY="19.0" mnemonicParsing="false" text="Cartão de Crédito" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+            <Button fx:id="confirmaCompra_btn" layoutX="50.0" layoutY="19.0" mnemonicParsing="false" onAction="#confirmarCompra" text="Cartão de Crédito" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="0.0" prefWidth="0.0">
          <children>
-            <Button layoutX="50.0" layoutY="19.0" mnemonicParsing="false" text="Cartão de Débito" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+            <Button fx:id="confirmaCompra_btn" layoutX="50.0" layoutY="19.0" mnemonicParsing="false" onAction="#confirmarCompra" text="Cartão de Débito" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
          </children>
       </AnchorPane>
    </children>
