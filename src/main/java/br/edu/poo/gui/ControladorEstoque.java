@@ -8,34 +8,60 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputControl;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class ControladorEstoque {
     private Estoque metodoEstoque = new Estoque();
 
+    //Tela de Pesquisa
     @FXML
-    private TextField codigo_id;
+    private TextField PesquisaProduto_txt;
     @FXML
-    private TextField nome_id;
+    private Button PesquisaProduto_btn;
     @FXML
-    private TextField descricao_id;
+    private Button addProduto_btn;
+    //Tela de Cadastro
     @FXML
-    private TextField preco_id;
+    private TextField addCodigo_txt;
     @FXML
-    private TextField quantidade_id;
+    private TextField addNome_txt;
+    @FXML
+    private TextField addDescricao_txt;
+    @FXML
+    private TextField addPreco_txt;
+    @FXML
+    private TextField addQuantidade_txt;
+    @FXML
+    private Button confirmaCadastro_btn;
+    //Fim da Tela de Cadastro
+    
+    //Tela de Remoção
+    //Fim da Tela de Remoção
 
-    void cadastrarProduto() throws Exception {
-        String parseCodigo = codigo_id.getText();
-        String nome = nome_id.getText();
-        String descricao= descricao_id.getText();
-        String parsePreco = preco_id.getText();
-        String parseQuantidade = quantidade_id.getText();
+    //Tela de Atualização
+    @FXML
+    private TextField attPesquisaProduto_txt;
+    @FXML
+    private TextField attNome_txt;
+    @FXML
+    private TextField attPreco_txt;
+    @FXML
+    private TextField attQuantidade_txt;
 
-        int codigo = Integer.parseInt(parseCodigo);
-        double preco = Double.parseDouble(parsePreco);
-        double quantidade = Double.parseDouble(parseQuantidade);
+    private TextInputControl removerProduto_btn;
+    //Fim da Tela de Atualização
+    @FXML
+    void cadastrarProduto(ActionEvent event) {
+        String nome = addNome_txt.getText();
+        String descricao= addDescricao_txt.getText();
+
+        int codigo = Integer.parseInt(addCodigo_txt.getText());
+        double preco = Double.parseDouble(addPreco_txt.getText());
+        double quantidade = Double.parseDouble(addQuantidade_txt.getText());
 
         Produto produto = new Produto(codigo, nome, descricao, preco, quantidade);
 
@@ -49,7 +75,7 @@ public class ControladorEstoque {
     }
 
     void removerProduto() throws Exception {
-        String parseCodigo = codigo_id.getText();
+        String parseCodigo = removerProduto_btn.getText();
         int codigo = Integer.parseInt(parseCodigo);
 
         try {
@@ -59,8 +85,9 @@ public class ControladorEstoque {
         }
     }
 
+    @FXML
     void obterProduto() throws Exception {
-        String parseCodigo = codigo_id.getText();
+        String parseCodigo = PesquisaProduto_txt.getText();
         int codigo = Integer.parseInt(parseCodigo);
 
         try {
@@ -70,9 +97,10 @@ public class ControladorEstoque {
         }
     }
 
+    @FXML
     void atualizarQuantidade() throws Exception {
-        String parseCodigo = codigo_id.getText();
-        String parseQuantidade = quantidade_id.getText();
+        String parseCodigo = attPesquisaProduto_id.getText();
+        String parseQuantidade = attQuantidade_id.getText();
 
         int codigo = Integer.parseInt(parseCodigo);
         double quantidade = Double.parseDouble(parseQuantidade);
@@ -84,9 +112,10 @@ public class ControladorEstoque {
         }
     }
 
+    @FXML
     void atualizarPreco() throws Exception {
-        String parseCodigo = codigo_id.getText();
-        String parsePreco = preco_id.getText();
+        String parseCodigo = PesquisaProduto_txt.getText();
+        String parsePreco = attPreco_txt.getText();
 
         int codigo = Integer.parseInt(parseCodigo);
         double preco = Double.parseDouble(parsePreco);
@@ -99,7 +128,16 @@ public class ControladorEstoque {
     }
     @FXML
     private void addProduto(ActionEvent event) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Estoque.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TelaDeCadastro.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+    }
+    @FXML
+    private void attProduto(ActionEvent event) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TelaDeAtualizarProduto.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));

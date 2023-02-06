@@ -2,17 +2,17 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.poo.gui.ControladorEstoque">
    <children>
       <VBox prefHeight="700.0" prefWidth="550.0">
          <children>
-            <AnchorPane prefHeight="100.0" prefWidth="550.0">
+            <AnchorPane prefHeight="0.0" prefWidth="0.0">
                <children>
                   <Label layoutX="50.0" layoutY="19.0" prefHeight="84.0" prefWidth="450.0" text="Cadastro de item" AnchorPane.bottomAnchor="-19.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="19.0">
                      <font>
@@ -21,48 +21,48 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="50.0" prefWidth="50.0">
+            <AnchorPane prefHeight="0.0" prefWidth="0.0">
                <children>
                   <Label layoutX="50.0" layoutY="41.0" prefHeight="19.0" prefWidth="124.0" text="Código do produto">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="addCodigo_id" layoutX="52.0" layoutY="54.0" prefHeight="25.0" prefWidth="400.0" AnchorPane.bottomAnchor="550.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="60.0" />
                   <Label layoutX="50.0" layoutY="111.0" prefHeight="19.0" prefWidth="124.0" text="Nome do produto">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="addNome_id" layoutX="50.0" layoutY="129.0" prefHeight="34.0" prefWidth="450.0" AnchorPane.bottomAnchor="481.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="130.0" />
                   <Label layoutX="50.0" layoutY="178.0" prefHeight="19.0" prefWidth="132.0" text="Descrição do produto">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="addDescrição_id" layoutX="50.0" layoutY="197.0" prefHeight="34.0" prefWidth="450.0" />
                   <Label layoutX="50.0" layoutY="242.0" prefHeight="19.0" prefWidth="132.0" text="Preço do produto">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="addPreco_id" layoutX="50.0" layoutY="261.0" prefHeight="34.0" prefWidth="450.0" />
                   <Label layoutX="50.0" layoutY="306.0" prefHeight="19.0" prefWidth="144.0" text="Quantidade do produto">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="addQuantidade_id" layoutX="50.0" layoutY="325.0" prefHeight="34.0" prefWidth="450.0" />
-                  <Button fx:id="addConfirmar_btn" layoutX="356.0" layoutY="401.0" mnemonicParsing="false" style="-fx-background-color: green;" text="Confirmar" textFill="WHITE" AnchorPane.bottomAnchor="190.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="400.0">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Button>
                   <Button fx:id="addCancelar_btn" layoutX="48.0" layoutY="401.0" mnemonicParsing="false" style="-fx-background-color: red;" text="Cancelar" textFill="WHITE" AnchorPane.bottomAnchor="190.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="400.0">
                      <font>
                         <Font size="25.0" />
                      </font>
                   </Button>
+                  <Button fx:id="confirmaCadastro_btn" layoutX="356.0" layoutY="401.0" mnemonicParsing="false" onAction="#cadastrarProduto" style="-fx-background-color: green;" text="Confirmar" textFill="WHITE" AnchorPane.bottomAnchor="190.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="400.0">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="addCodigo_txt" layoutX="51.0" layoutY="60.0" prefHeight="25.0" prefWidth="439.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+                  <TextField fx:id="addNome_txt" layoutX="51.0" layoutY="130.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+                  <TextField fx:id="addDescricao_txt" layoutX="51.0" layoutY="197.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+                  <TextField fx:id="addPreco_txt" layoutX="51.0" layoutY="261.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+                  <TextField fx:id="addQuantidade_txt" layoutX="51.0" layoutY="325.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
                </children>
             </AnchorPane>
          </children>
