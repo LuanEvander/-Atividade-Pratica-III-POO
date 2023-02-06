@@ -53,6 +53,7 @@
               <items>
                 <MenuItem fx:id="estoqueItem_id" mnemonicParsing="false" onAction="#estoque" text="Estoque" />
                 <MenuItem fx:id="nfItem_id" mnemonicParsing="false" onAction="#registroNotasFiscais" text="Nota Fiscal" />
+                  <MenuItem fx:id="carregarProdutos" mnemonicParsing="false" onAction="#carregarProdutos" text="Carregar Produtos" />
               </items>
             </MenuButton>
             <Label layoutX="109.0" layoutY="29.0" text="MarkÈd" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="30.0">
@@ -64,7 +65,7 @@
       </AnchorPane>
       <AnchorPane fx:id="navBar1" prefHeight="0.0">
          <children>
-            <TextField fx:id="txtPesquisarProduto" layoutX="48.0" layoutY="2.0" onAction="#adicionarProduto" prefHeight="40.0" prefWidth="828.0" promptText="Adicione o código do produto" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="350.0" />
+            <TextField fx:id="txtPesquisarProduto" layoutX="48.0" layoutY="2.0" prefHeight="40.0" prefWidth="828.0" promptText="Adicione o código do produto" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="350.0" />
             <Button fx:id="cancelarCompra_btn" layoutX="1087.0" layoutY="6.0" mnemonicParsing="false" onAction="#limparPlanilha" opacity="0.88" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: red; c: white;" text="Cancelar" textFill="WHITE" AnchorPane.rightAnchor="50.0" />
             <Button fx:id="confirmarCompra_btn" layoutX="983.0" layoutY="7.0" mnemonicParsing="false" onAction="#pagamento" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: green;" text="Confirmar" textFill="WHITE" AnchorPane.rightAnchor="170.0" />
             <TextField fx:id="txtQtdProduto" layoutX="56.0" layoutY="2.0" onAction="#adicionarProduto" prefHeight="40.0" prefWidth="828.0" promptText="Qtd" AnchorPane.leftAnchor="940.0" AnchorPane.rightAnchor="280.0" />

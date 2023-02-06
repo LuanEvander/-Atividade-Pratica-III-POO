@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -43,8 +44,6 @@ public class ControladorCaixa {
 
     @FXML
     private void initialize() throws ProdutoInvalidoException, CodigoInvalidoException {
-        carregarProdutos();
-
         colunaCodigo.setCellValueFactory(
                 cellData -> new SimpleIntegerProperty(cellData.getValue().getProduto().getCodigo()).asObject());
         colunaNome
@@ -62,36 +61,60 @@ public class ControladorCaixa {
     }
 
     @FXML
-public void adicionarProduto(ActionEvent event) {
-    int codProduto = Integer.parseInt(txtPesquisarProduto.getText());
-    double qtdProduto = Double.parseDouble(txtQtdProduto.getText());
-    Produto produto = null;
-    try {
-        produto = metodoEstoque.getProduto(codProduto);
-    } catch (CodigoInvalidoException e) {
-        e.printStackTrace();
-    }
-
-    try {
-        if (qtdProduto <= 0) {
-            throw new IllegalArgumentException("Quantidade deve ser maior que 0");
+    public void adicionarProduto(ActionEvent event) {
+        int codProduto = 0;
+        Produto produto = null;
+        double qtdProduto = 0;
+        try {
+            codProduto = Integer.parseInt(txtPesquisarProduto.getText());
+        } catch (NumberFormatException e) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Erro");
+            alert.setHeaderText("Código inválido");
+            alert.setContentText("Verifique o código do produto e tente novamente.");
+            alert.showAndWait();
         }
-    } catch (IllegalArgumentException e) {
-        // Mostre uma mensagem de erro para o usuário
+        try {
+            qtdProduto = Double.parseDouble(txtQtdProduto.getText());
+        } catch (NumberFormatException e) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Erro");
+            alert.setHeaderText("Quantidade inválida");
+            alert.setContentText("Preencha a caixa de texro com uma quantidade válida.");
+            alert.showAndWait();
 
+            txtPesquisarProduto.setText("");
+            codProduto = 0;
+        }
+        try {
+            produto = metodoEstoque.getProduto(codProduto);
+            Item produtoItem = new Item(produto, qtdProduto);
+            listaDeProdutos.add(produtoItem);
+
+            double total = 0;
+            for (Item item : listaDeProdutos) {
+                total += item.getValorTotal();
+            }
+            txtPesquisarProduto.setText("");
+            txtQtdProduto.setText("");
+            labelTotal.setText(String.valueOf(total));
+            tabelaProdutos.refresh();
+        } catch (CodigoInvalidoException e) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Erro");
+            alert.setHeaderText(e.getMessage());
+            alert.setContentText("Preencha a caixa de texto com uma quantidade válida.");
+            alert.showAndWait();
+        } catch (NumberFormatException e) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Erro");
+            alert.setHeaderText("Quantidade inválida");
+            alert.setContentText("Preencha a caixa de texto com uma quantidade válida.");
+            alert.showAndWait();
+        }
     }
 
-    Item produtoItem = new Item(produto, qtdProduto);
-    listaDeProdutos.add(produtoItem);
-
-    double total = 0;
-    for (Item item : listaDeProdutos) {
-        total += item.getValorTotal();
-    }
-    labelTotal.setText(String.valueOf(total));
-    tabelaProdutos.refresh();
-}
-    //metodo pra limpar a planilha apertnado um botão de cancelar
+    // metodo pra limpar a planilha apertnado um botão de cancelar
     @FXML
     private void limparPlanilha(ActionEvent event) {
         listaDeProdutos.clear();
@@ -108,7 +131,16 @@ public void adicionarProduto(ActionEvent event) {
         stage.show();
     }
 
-    //metodo de compra concluida
+    @FXML
+    private void confirmarCompra(ActionEvent event) throws Exception {
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("MarkÈd - Caixa");
+        alert.setHeaderText("Confirmar compra");
+        alert.setContentText("Verifique se a compra foi realizada corretamente.");
+        alert.showAndWait(); 
+    }
+
+    // metodo de compra concluida
     @FXML
     private void compraConcluida(ActionEvent event) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PagamentoConcluído.fxml"));
@@ -119,7 +151,7 @@ public void adicionarProduto(ActionEvent event) {
         stage.show();
     }
 
-    //metodo para entrar no estoque
+    // metodo para entrar no estoque
     @FXML
     private void estoque(ActionEvent event) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("estoque.fxml"));
@@ -130,7 +162,7 @@ public void adicionarProduto(ActionEvent event) {
         stage.show();
     }
 
-    //metodo para entrar no registro de notas fiscais
+    // metodo para entrar no registro de notas fiscais
     @FXML
     private void registroNotasFiscais(ActionEvent event) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("notafiscal.fxml"));
@@ -141,14 +173,35 @@ public void adicionarProduto(ActionEvent event) {
         stage.show();
     }
 
+    @FXML
     private void carregarProdutos() throws ProdutoInvalidoException, CodigoInvalidoException {
         Produto produto1 = new Produto(1, "Arroz", "Arroz branco", 5.00, 10);
         Produto produto2 = new Produto(2, "Feijão", "Feijão preto", 4.00, 10);
         Produto produto3 = new Produto(3, "Macarrão", "Macarrão de espaguete", 3.00, 10);
 
-        metodoEstoque.addProduto(produto3);
-        metodoEstoque.addProduto(produto2);
-        metodoEstoque.addProduto(produto1);
+        try {
+            metodoEstoque.addProduto(produto3);
+            metodoEstoque.addProduto(produto2);
+            metodoEstoque.addProduto(produto1);
+
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Produto Cadastrado");
+            alert.setHeaderText(null);
+            alert.setContentText("Produtos cadastrados com sucesso!");
+            alert.showAndWait();
+        } catch (ProdutoInvalidoException e) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Erro");
+            alert.setHeaderText(e.getMessage());
+            alert.setContentText("Produtos já foram cadastrados.");
+            alert.showAndWait();
+        } catch (CodigoInvalidoException e) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Erro");
+            alert.setHeaderText(e.getMessage());
+            alert.setContentText("Produtos já foram cadastrados.");
+            alert.showAndWait();
+        }
     }
 
 
