@@ -49,9 +49,9 @@
    <children>
       <AnchorPane fx:id="navBar" prefHeight="0.0">
          <children>
-            <MenuButton fx:id="menuButton" depthTest="DISABLE" layoutX="36.0" layoutY="32.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" stylesheets="@../../../Downloads/menuHamb.css" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="1174.0" AnchorPane.topAnchor="30.0">
+            <MenuButton fx:id="menuButton" depthTest="DISABLE" layoutX="36.0" layoutY="32.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="1174.0" AnchorPane.topAnchor="30.0">
               <items>
-                <MenuItem mnemonicParsing="false" text="Estoque" />
+                <MenuItem mnemonicParsing="false" onAction="#initialize" text="Estoque" />
                 <MenuItem mnemonicParsing="false" text="Nota Fical" />
               </items>
             </MenuButton>

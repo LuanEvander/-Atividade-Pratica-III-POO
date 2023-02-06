@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.poo.gui.ControladorEstoque">
    <children>
       <VBox prefHeight="700.0" prefWidth="550.0">
          <children>
@@ -53,7 +53,7 @@
                      </font>
                   </Label>
                   <TextArea fx:id="addQuantidade_id" layoutX="50.0" layoutY="325.0" prefHeight="34.0" prefWidth="450.0" />
-                  <Button fx:id="addConfirmar_btn" layoutX="356.0" layoutY="401.0" mnemonicParsing="false" style="-fx-background-color: green;" text="Confirmar" textFill="WHITE" AnchorPane.bottomAnchor="190.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="400.0">
+                  <Button fx:id="addConfirmar_btn" layoutX="356.0" layoutY="401.0" mnemonicParsing="false" onAction="#cadastrarProduto" style="-fx-background-color: green;" text="Confirmar" textFill="WHITE" AnchorPane.bottomAnchor="190.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="400.0">
                      <font>
                         <Font size="25.0" />
                      </font>

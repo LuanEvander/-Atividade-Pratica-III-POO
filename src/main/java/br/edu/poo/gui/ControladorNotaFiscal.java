@@ -5,7 +5,6 @@ import br.edu.poo.backend.Produto;
 import br.edu.poo.backend.RegistroNotasFiscais;
 import br.edu.poo.backend.Exceptions.CodigoInvalidoException;
 import br.edu.poo.backend.Exceptions.ProdutoInvalidoException;
-import br.edu.poo.gui.ControladorEstoque;
 import javafx.collections.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

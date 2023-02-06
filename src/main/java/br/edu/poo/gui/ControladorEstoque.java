@@ -9,29 +9,50 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputControl;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class ControladorEstoque {
     private Estoque metodoEstoque = new Estoque();
 
+    //Tela de Pesquisa
     @FXML
-    private TextField codigo_id;
+    private TextField PesquisaProduto_id;
+    //Tela de Cadastro
     @FXML
-    private TextField nome_id;
+    private TextField addCodigo_id;
     @FXML
-    private TextField descricao_id;
+    private TextField addNome_id;
     @FXML
-    private TextField preco_id;
+    private TextField addDescrição_id;
     @FXML
-    private TextField quantidade_id;
+    private TextField addPreco_id;
+    @FXML
+    private TextField addQuantidade_id;
+    //Fim da Tela de Cadastro
+    
+    //Tela de Remoção
+    //Fim da Tela de Remoção
 
+    //Tela de Atualização
+    @FXML
+    private TextField attPesquisaProduto_id;
+    @FXML
+    private TextField attNome_id;
+    @FXML
+    private TextField attPreco_id;
+    @FXML
+    private TextField attQuantidade_id;
+
+    private TextInputControl removerProduto_btn;
+    //Fim da Tela de Atualização
     void cadastrarProduto() throws Exception {
-        String parseCodigo = codigo_id.getText();
-        String nome = nome_id.getText();
-        String descricao= descricao_id.getText();
-        String parsePreco = preco_id.getText();
-        String parseQuantidade = quantidade_id.getText();
+        String parseCodigo = addCodigo_id.getText();
+        String nome = addNome_id.getText();
+        String descricao= addDescrição_id.getText();
+        String parsePreco = addPreco_id.getText();
+        String parseQuantidade = addQuantidade_id.getText();
 
         int codigo = Integer.parseInt(parseCodigo);
         double preco = Double.parseDouble(parsePreco);
@@ -49,7 +70,7 @@ public class ControladorEstoque {
     }
 
     void removerProduto() throws Exception {
-        String parseCodigo = codigo_id.getText();
+        String parseCodigo = removerProduto_btn.getText();
         int codigo = Integer.parseInt(parseCodigo);
 
         try {
@@ -60,7 +81,7 @@ public class ControladorEstoque {
     }
 
     void obterProduto() throws Exception {
-        String parseCodigo = codigo_id.getText();
+        String parseCodigo = PesquisaProduto_id.getText();
         int codigo = Integer.parseInt(parseCodigo);
 
         try {
@@ -71,8 +92,8 @@ public class ControladorEstoque {
     }
 
     void atualizarQuantidade() throws Exception {
-        String parseCodigo = codigo_id.getText();
-        String parseQuantidade = quantidade_id.getText();
+        String parseCodigo = attPesquisaProduto_id.getText();
+        String parseQuantidade = attQuantidade_id.getText();
 
         int codigo = Integer.parseInt(parseCodigo);
         double quantidade = Double.parseDouble(parseQuantidade);
@@ -85,8 +106,8 @@ public class ControladorEstoque {
     }
 
     void atualizarPreco() throws Exception {
-        String parseCodigo = codigo_id.getText();
-        String parsePreco = preco_id.getText();
+        String parseCodigo = attPesquisaProduto_id.getText();
+        String parsePreco = attPreco_id.getText();
 
         int codigo = Integer.parseInt(parseCodigo);
         double preco = Double.parseDouble(parsePreco);
@@ -99,7 +120,16 @@ public class ControladorEstoque {
     }
     @FXML
     private void addProduto(ActionEvent event) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Estoque.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TelaDeCadastro.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+    }
+    @FXML
+    private void attProduto(ActionEvent event) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TelaDeAtualizarProduto.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
