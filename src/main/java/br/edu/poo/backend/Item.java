@@ -2,11 +2,11 @@ package br.edu.poo.backend;
 
 public class Item {
     private Produto produto;
-    private int quantidade;
+    private double quantidade;
 
-    public Item(Produto produto, int quantidade) {
+    public Item(Produto produto, double qtdProduto) {
         this.produto = produto;
-        this.quantidade = quantidade;
+        this.quantidade = qtdProduto;
     }
 
     /**
@@ -32,7 +32,7 @@ public class Item {
      * 
      * @return Retorna a quantidade.
      */
-    public int getQuantidade() {
+    public double getQuantidade() {
         return quantidade;
     }
 
