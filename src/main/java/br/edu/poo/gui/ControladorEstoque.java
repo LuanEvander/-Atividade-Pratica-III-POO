@@ -1,9 +1,16 @@
 package br.edu.poo.gui;
 
+
 import br.edu.poo.backend.*;
 import br.edu.poo.backend.Exceptions.*;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class ControladorEstoque {
     private Estoque metodoEstoque = new Estoque();
@@ -89,5 +96,14 @@ public class ControladorEstoque {
         } catch (CodigoInvalidoException e) {
             e.printStackTrace();
         }
+    }
+    @FXML
+    private void addProduto(ActionEvent event) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Estoque.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
     }
 }
