@@ -45,14 +45,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.poo.gui.ControladorNotaFiscal">
+<VBox prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.poo.gui.ControladorCaixa">
    <children>
       <AnchorPane fx:id="navBar" prefHeight="0.0">
          <children>
             <MenuButton fx:id="menuButton" depthTest="DISABLE" layoutX="36.0" layoutY="32.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="1174.0" AnchorPane.topAnchor="30.0">
               <items>
-                <MenuItem mnemonicParsing="false" onAction="#initialize" text="Estoque" />
-                <MenuItem mnemonicParsing="false" text="Nota Fical" />
+                <MenuItem fx:id="estoqueItem_id" mnemonicParsing="false" onAction="#estoque" text="Estoque" />
+                <MenuItem fx:id="nfItem_id" mnemonicParsing="false" onAction="#registroNotasFiscais" text="Nota Fiscal" />
               </items>
             </MenuButton>
             <Label layoutX="109.0" layoutY="29.0" text="MarkÈd" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="30.0">
@@ -65,8 +65,9 @@
       <AnchorPane fx:id="navBar1" prefHeight="0.0">
          <children>
             <TextField fx:id="txtPesquisarProduto" layoutX="48.0" layoutY="2.0" onAction="#adicionarProduto" prefHeight="40.0" prefWidth="828.0" promptText="Adicione o código do produto" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="350.0" />
-            <Button layoutX="1087.0" layoutY="6.0" mnemonicParsing="false" opacity="0.88" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: red; c: white;" text="Cancelar" textFill="WHITE" AnchorPane.rightAnchor="50.0" />
-            <Button fx:id="con" layoutX="983.0" layoutY="7.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: green;" text="Confirmar" textFill="WHITE" AnchorPane.rightAnchor="200.0" />
+            <Button fx:id="cancelarCompra_btn" layoutX="1087.0" layoutY="6.0" mnemonicParsing="false" onAction="#limparPlanilha" opacity="0.88" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: red; c: white;" text="Cancelar" textFill="WHITE" AnchorPane.rightAnchor="50.0" />
+            <Button fx:id="confirmarCompra_btn" layoutX="983.0" layoutY="7.0" mnemonicParsing="false" onAction="#pagamento" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: green;" text="Confirmar" textFill="WHITE" AnchorPane.rightAnchor="170.0" />
+            <TextField fx:id="txtQtdProduto" layoutX="56.0" layoutY="2.0" onAction="#adicionarProduto" prefHeight="40.0" prefWidth="828.0" promptText="Qtd" AnchorPane.leftAnchor="940.0" AnchorPane.rightAnchor="280.0" />
          </children>
          <VBox.margin>
             <Insets />
@@ -102,7 +103,7 @@
                         <Font size="40.0" />
                      </font>
                   </Label>
-                  <Label layoutX="409.0" layoutY="75.0" text="00,00">
+                  <Label fx:id="labelTotal" layoutX="409.0" layoutY="75.0" text="00,00">
                      <font>
                         <Font size="40.0" />
                      </font>
